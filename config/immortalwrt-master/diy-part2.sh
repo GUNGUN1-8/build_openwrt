@@ -16,7 +16,7 @@ sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package
 echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_release
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
-# sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
+# sed -i 's/192.168.10.1/192.168.31.4/g' package/base-files/files/bin/config_generate
 #
 # ------------------------------- Main source ends -------------------------------
 
@@ -24,6 +24,20 @@ echo "DISTRIB_SOURCECODE='immortalwrt'" >>package/base-files/files/etc/openwrt_r
 #
 # Add luci-app-amlogic
 svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/fibocom-dial package/fibocom-dial 
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/sms-tool package/sms-tool
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/fibocom-MHI package/fibocom-MHI
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/fibocom_QMI_WWAN package/fibocom_QMI_WWAN
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/luci-app-cpe package/luci-app-cpe
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/luci-app-modem package/luci-app-modem
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/luci-app-usbmodem package/luci-app-usbmodem
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/quectel_QMI_WWAN package/quectel_QMI_WWAN
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/rooter package/rooter
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/sendat package/sendat
+svn co https://github.com/Siriling/5G-Modem-Support/tree/main/luci-app-sms-tool package/luci-app-sms-tool
+
+
+
 
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
